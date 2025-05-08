@@ -20,10 +20,40 @@ public class AuthService : IAuthService
         _configuration = configuration;
     }
 
+    public async Task<LoginResponseDto> RegisterAsync(RegisterRequestDto request)
+    {
+        if (await _context.Users.AnyAsync(u => u.Username == request.Username))
+        {
+            throw new InvalidOperationException("Uživatelské jméno je již obsazené.");
+        }
+
+        if (await _context.Users.AnyAsync(u => u.Email == request.Email))
+        {
+            throw new InvalidOperationException("Email je již registrován.");
+        }
+
+        var user = new User
+        {
+            Username = request.Username,
+            Email = request.Email,
+            PasswordHash = BCrypt.Net.BCrypt.HashPassword(request.Password),
+            CreatedAt = DateTime.UtcNow
+        };
+
+        _context.Users.Add(user);
+        await _context.SaveChangesAsync();
+
+        return await LoginAsync(new LoginRequestDto
+        {
+            Username = request.Username,
+            Password = request.Password
+        });
+    }
+
     public async Task<LoginResponseDto> LoginAsync(LoginRequestDto request)
     {
         var user = await _context.Users
-            .FirstOrDefaultAsync(u => u.Email == request.Email);
+            .FirstOrDefaultAsync(u => u.Username == request.Username);
 
         if (user == null || !BCrypt.Net.BCrypt.Verify(request.Password, user.PasswordHash))
         {
@@ -40,7 +70,7 @@ public class AuthService : IAuthService
         return new LoginResponseDto
         {
             Token = token,
-            Email = user.Email,
+            Username = user.Username,
             ExpiresAt = DateTime.UtcNow.AddMinutes(
                 int.Parse(_configuration["Jwt:ExpiryInMinutes"] ?? "60"))
         };
@@ -55,7 +85,7 @@ public class AuthService : IAuthService
         var claims = new[]
         {
             new Claim(ClaimTypes.NameIdentifier, user.Id.ToString()),
-            new Claim(ClaimTypes.Email, user.Email)
+            new Claim(ClaimTypes.Name, user.Username)
         };
 
         var token = new JwtSecurityToken(

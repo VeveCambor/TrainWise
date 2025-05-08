@@ -5,6 +5,7 @@
 /Users/veva/Desktop/NewGitRepository/TrainWise/TrainWise-be/TrainWise.API/bin/Debug/net8.0/TrainWise.API.runtimeconfig.json
 /Users/veva/Desktop/NewGitRepository/TrainWise/TrainWise-be/TrainWise.API/bin/Debug/net8.0/TrainWise.API.dll
 /Users/veva/Desktop/NewGitRepository/TrainWise/TrainWise-be/TrainWise.API/bin/Debug/net8.0/TrainWise.API.pdb
+/Users/veva/Desktop/NewGitRepository/TrainWise/TrainWise-be/TrainWise.API/bin/Debug/net8.0/BCrypt.Net-Next.dll
 /Users/veva/Desktop/NewGitRepository/TrainWise/TrainWise-be/TrainWise.API/bin/Debug/net8.0/Humanizer.dll
 /Users/veva/Desktop/NewGitRepository/TrainWise/TrainWise-be/TrainWise.API/bin/Debug/net8.0/Microsoft.AspNetCore.Authentication.JwtBearer.dll
 /Users/veva/Desktop/NewGitRepository/TrainWise/TrainWise-be/TrainWise.API/bin/Debug/net8.0/Microsoft.AspNetCore.OpenApi.dll
@@ -135,4 +136,3 @@
 /Users/veva/Desktop/NewGitRepository/TrainWise/TrainWise-be/TrainWise.API/obj/Debug/net8.0/TrainWise.API.pdb
 /Users/veva/Desktop/NewGitRepository/TrainWise/TrainWise-be/TrainWise.API/obj/Debug/net8.0/TrainWise.API.genruntimeconfig.cache
 /Users/veva/Desktop/NewGitRepository/TrainWise/TrainWise-be/TrainWise.API/obj/Debug/net8.0/ref/TrainWise.API.dll
-/Users/veva/Desktop/NewGitRepository/TrainWise/TrainWise-be/TrainWise.API/bin/Debug/net8.0/BCrypt.Net-Next.dll

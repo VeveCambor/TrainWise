@@ -17,7 +17,8 @@ namespace TrainWise.API.Migrations
                 {
                     Id = table.Column<int>(type: "INTEGER", nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
-                    Email = table.Column<string>(type: "TEXT", nullable: false),
+                    Username = table.Column<string>(type: "TEXT", nullable: false),
+                    Email = table.Column<string>(type: "TEXT", nullable: true),
                     PasswordHash = table.Column<string>(type: "TEXT", nullable: false),
                     CreatedAt = table.Column<DateTime>(type: "TEXT", nullable: false),
                     LastLoginAt = table.Column<DateTime>(type: "TEXT", nullable: true)
@@ -99,6 +100,11 @@ namespace TrainWise.API.Migrations
                         onDelete: ReferentialAction.Cascade);
                 });
 
+            migrationBuilder.InsertData(
+                table: "Users",
+                columns: new[] { "Id", "CreatedAt", "Email", "LastLoginAt", "PasswordHash", "Username" },
+                values: new object[] { 1, new DateTime(2025, 5, 8, 17, 12, 28, 355, DateTimeKind.Utc).AddTicks(7280), null, null, "$2a$11$yh47/UHoobk1AtdibXkos.WAskZRJrt0DyOnHFeIrRSXFvZPPU7ka", "wewa" });
+
             migrationBuilder.CreateIndex(
                 name: "IX_TrainingItems_TrainingPlanId",
                 table: "TrainingItems",
@@ -116,9 +122,9 @@ namespace TrainWise.API.Migrations
                 unique: true);
 
             migrationBuilder.CreateIndex(
-                name: "IX_Users_Email",
+                name: "IX_Users_Username",
                 table: "Users",
-                column: "Email",
+                column: "Username",
                 unique: true);
         }
 

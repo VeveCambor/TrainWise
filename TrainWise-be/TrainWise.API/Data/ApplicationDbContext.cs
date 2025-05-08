@@ -37,7 +37,24 @@ public class ApplicationDbContext : DbContext
             
         // Indexy
         modelBuilder.Entity<User>()
-            .HasIndex(u => u.Email)
+            .HasIndex(u => u.Username)
             .IsUnique();
+            
+        // Seed data
+        SeedData(modelBuilder);
+    }
+    
+    private void SeedData(ModelBuilder modelBuilder)
+    {
+        // Vytvoření testovacího uživatele
+        var testUser = new User
+        {
+            Id = 1,
+            Username = "wewa",
+            PasswordHash = BCrypt.Net.BCrypt.HashPassword("wewa"),
+            CreatedAt = DateTime.UtcNow
+        };
+        
+        modelBuilder.Entity<User>().HasData(testUser);
     }
 } 

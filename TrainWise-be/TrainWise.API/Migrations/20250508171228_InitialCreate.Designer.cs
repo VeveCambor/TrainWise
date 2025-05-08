@@ -11,7 +11,7 @@ using TrainWise.API.Data;
 namespace TrainWise.API.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20250508102148_InitialCreate")]
+    [Migration("20250508171228_InitialCreate")]
     partial class InitialCreate
     {
         /// <inheritdoc />
@@ -91,7 +91,6 @@ namespace TrainWise.API.Migrations
                         .HasColumnType("TEXT");
 
                     b.Property<string>("Email")
-                        .IsRequired()
                         .HasColumnType("TEXT");
 
                     b.Property<DateTime?>("LastLoginAt")
@@ -101,12 +100,25 @@ namespace TrainWise.API.Migrations
                         .IsRequired()
                         .HasColumnType("TEXT");
 
+                    b.Property<string>("Username")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
                     b.HasKey("Id");
 
-                    b.HasIndex("Email")
+                    b.HasIndex("Username")
                         .IsUnique();
 
                     b.ToTable("Users");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            CreatedAt = new DateTime(2025, 5, 8, 17, 12, 28, 355, DateTimeKind.Utc).AddTicks(7280),
+                            PasswordHash = "$2a$11$yh47/UHoobk1AtdibXkos.WAskZRJrt0DyOnHFeIrRSXFvZPPU7ka",
+                            Username = "wewa"
+                        });
                 });
 
             modelBuilder.Entity("TrainWise.API.Models.UserProfile", b =>
