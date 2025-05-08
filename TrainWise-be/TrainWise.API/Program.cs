@@ -4,6 +4,10 @@ using Microsoft.IdentityModel.Tokens;
 using System.Text;
 using TrainWise.API.Data;
 using TrainWise.API.Services;
+using DotNetEnv;
+
+// Load .env file
+Env.Load();
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -19,7 +23,7 @@ builder.Services.AddScoped<ITrainingService, TrainingService>();
 
 // Add DbContext
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
-    options.UseSqlite(builder.Configuration.GetConnectionString("DefaultConnection")));
+    options.UseSqlServer(Environment.GetEnvironmentVariable("ConnectionStrings__DefaultConnection")));
 
 // Add Authentication
 builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
@@ -31,10 +35,10 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
             ValidateAudience = true,
             ValidateLifetime = true,
             ValidateIssuerSigningKey = true,
-            ValidIssuer = builder.Configuration["Jwt:Issuer"],
-            ValidAudience = builder.Configuration["Jwt:Audience"],
+            ValidIssuer = Environment.GetEnvironmentVariable("JWT__Issuer"),
+            ValidAudience = Environment.GetEnvironmentVariable("JWT__Audience"),
             IssuerSigningKey = new SymmetricSecurityKey(
-                Encoding.UTF8.GetBytes(builder.Configuration["Jwt:Key"] ?? throw new InvalidOperationException("JWT Key not found")))
+                Encoding.UTF8.GetBytes(Environment.GetEnvironmentVariable("JWT__Key") ?? throw new InvalidOperationException("JWT Key not found")))
         };
     });
 
