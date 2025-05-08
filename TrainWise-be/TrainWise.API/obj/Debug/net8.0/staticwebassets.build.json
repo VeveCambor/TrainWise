@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "Hash": "v6LxXwVGurWLK3w+73EJpf+Yo2YwgD+kPzD6ko25fI4=",
+  "Source": "TrainWise.API",
+  "BasePath": "_content/TrainWise.API",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}
