@@ -15,6 +15,7 @@ builder.Services.AddSwaggerGen();
 
 // Register services
 builder.Services.AddScoped<IAuthService, AuthService>();
+builder.Services.AddScoped<ITrainingService, TrainingService>();
 
 // Add DbContext
 builder.Services.AddDbContext<ApplicationDbContext>(options =>

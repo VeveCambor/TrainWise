@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("TrainWise.API")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+462602c8a693d4ba89c749943a9313a3966d3a34")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+fce7f3be9f9041a0a854a38cfa085225a6b85a9b")]
 [assembly: System.Reflection.AssemblyProductAttribute("TrainWise.API")]
 [assembly: System.Reflection.AssemblyTitleAttribute("TrainWise.API")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
