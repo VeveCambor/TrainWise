@@ -3,6 +3,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
 using TrainWise.API.Data;
+using TrainWise.API.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -13,6 +14,9 @@ builder.Services.AddControllers();
 var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
     options.UseSqlite(connectionString));
+
+// Registrace služeb
+builder.Services.AddScoped<IAuthService, AuthService>();
 
 // Konfigurace JWT autentizace
 builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
