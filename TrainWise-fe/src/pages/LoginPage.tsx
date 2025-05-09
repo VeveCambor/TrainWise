@@ -1,13 +1,25 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import type { AppDispatch, RootState } from '../store';
+import { login } from '../store/slices/authSlice';
+import { useNavigate } from 'react-router-dom';
 
 export default function LoginPage() {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
+  const dispatch = useDispatch<AppDispatch>();
+  const navigate = useNavigate();
+  const { loading, error, isAuthenticated } = useSelector((state: RootState) => state.auth);
+
+  useEffect(() => {
+    if (isAuthenticated) {
+      navigate('/');
+    }
+  }, [isAuthenticated, navigate]);
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    // TODO: Přidat logiku pro přihlášení
-    alert(`Username: ${username}\nPassword: ${password}`);
+    dispatch(login({ username, password }));
   };
 
   return (
@@ -43,11 +55,13 @@ export default function LoginPage() {
             className="w-full rounded-md border border-gray-300 px-3 py-2 focus:border-trainwise-coral focus:outline-none focus:ring-1 focus:ring-trainwise-coral"
           />
         </div>
+        {error && <div className="mb-4 text-red-600 text-sm text-center">{error}</div>}
         <button
           type="submit"
-          className="w-full rounded-md bg-trainwise-coral px-4 py-2 text-white font-semibold hover:bg-opacity-90 transition"
+          className="w-full rounded-md bg-trainwise-coral px-4 py-2 text-white font-semibold hover:bg-opacity-90 transition disabled:opacity-60"
+          disabled={loading}
         >
-          Přihlásit se
+          {loading ? 'Přihlašuji...' : 'Přihlásit se'}
         </button>
       </form>
     </div>

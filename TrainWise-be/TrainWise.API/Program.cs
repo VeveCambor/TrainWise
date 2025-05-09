@@ -23,7 +23,7 @@ builder.Services.AddScoped<ITrainingService, TrainingService>();
 
 // Add DbContext
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
-    options.UseSqlServer(Environment.GetEnvironmentVariable("ConnectionStrings__DefaultConnection")));
+    options.UseSqlite(Environment.GetEnvironmentVariable("ConnectionStrings__DefaultConnection")));
 
 // Add Authentication
 builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
