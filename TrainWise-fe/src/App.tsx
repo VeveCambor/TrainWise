@@ -5,6 +5,7 @@ import MainLayout from './layouts/MainLayout';
 import HomePage from './pages/HomePage';
 import TrainingPlansPage from './pages/TrainingPlansPage';
 import ProgressPage from './pages/ProgressPage';
+import LoginPage from './pages/LoginPage';
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
             <Route path="/" element={<HomePage />} />
             <Route path="/training-plans" element={<TrainingPlansPage />} />
             <Route path="/progress" element={<ProgressPage />} />
+            <Route path="/login" element={<LoginPage />} />
           </Routes>
         </MainLayout>
       </Router>
