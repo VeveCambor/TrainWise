@@ -3,6 +3,8 @@ import { Provider } from 'react-redux';
 import { store } from './store';
 import MainLayout from './layouts/MainLayout';
 import HomePage from './pages/HomePage';
+import TrainingPlansPage from './pages/TrainingPlansPage';
+import ProgressPage from './pages/ProgressPage';
 
 function App() {
   return (
@@ -11,7 +13,8 @@ function App() {
         <MainLayout>
           <Routes>
             <Route path="/" element={<HomePage />} />
-            {/* TODO: Přidat další routy pro tréninkové plány a sledování pokroku */}
+            <Route path="/training-plans" element={<TrainingPlansPage />} />
+            <Route path="/progress" element={<ProgressPage />} />
           </Routes>
         </MainLayout>
       </Router>
