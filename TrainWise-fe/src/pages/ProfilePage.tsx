@@ -4,6 +4,7 @@ import type { AppDispatch, RootState } from '../store';
 import { setProfile } from '../store/slices/profileSlice';
 import type { UserProfile } from '../types';
 import Button from '../components/ui/Button';
+import Input from '../components/ui/Input';
 
 const initialProfile: Omit<UserProfile, 'id' | 'userId' | 'createdAt' | 'updatedAt'> = {
   weight: 70,
@@ -47,15 +48,15 @@ export default function ProfilePage() {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           <div>
             <label className="block text-sm font-medium text-gray-700 mb-1">Váha (kg)</label>
-            <input type="number" name="weight" value={form.weight} onChange={handleChange} min={30} max={300} required className="w-full rounded-md border border-gray-300 px-3 py-2 focus:border-trainwise-coral focus:outline-none focus:ring-1 focus:ring-trainwise-coral" />
+            <Input type="number" name="weight" value={form.weight} onChange={handleChange} min={30} max={300} required />
           </div>
           <div>
             <label className="block text-sm font-medium text-gray-700 mb-1">Výška (cm)</label>
-            <input type="number" name="height" value={form.height} onChange={handleChange} min={100} max={250} required className="w-full rounded-md border border-gray-300 px-3 py-2 focus:border-trainwise-coral focus:outline-none focus:ring-1 focus:ring-trainwise-coral" />
+            <Input type="number" name="height" value={form.height} onChange={handleChange} min={100} max={250} required />
           </div>
           <div className="md:col-span-2">
             <label className="block text-sm font-medium text-gray-700 mb-1">Cíl</label>
-            <input type="text" name="goal" value={form.goal} onChange={handleChange} required placeholder="např. zhubnout, nabrat svaly..." className="w-full rounded-md border border-gray-300 px-3 py-2 focus:border-trainwise-coral focus:outline-none focus:ring-1 focus:ring-trainwise-coral" />
+            <Input type="text" name="goal" value={form.goal} onChange={handleChange} required placeholder="např. zhubnout, nabrat svaly..." />
           </div>
           <div>
             <label className="block text-sm font-medium text-gray-700 mb-1">Úroveň</label>
@@ -83,7 +84,7 @@ export default function ProfilePage() {
           </div>
           <div className="md:col-span-2">
             <label className="block text-sm font-medium text-gray-700 mb-1">Zdravotní omezení</label>
-            <input type="text" name="healthLimitations" value={form.healthLimitations} onChange={handleChange} placeholder="např. koleno, záda..." className="w-full rounded-md border border-gray-300 px-3 py-2 focus:border-trainwise-coral focus:outline-none focus:ring-1 focus:ring-trainwise-coral" />
+            <Input type="text" name="healthLimitations" value={form.healthLimitations} onChange={handleChange} placeholder="např. koleno, záda..." />
           </div>
           <div className="md:col-span-2">
             <label className="block text-sm font-medium text-gray-700 mb-1">Krátký popis pro asistenta</label>
