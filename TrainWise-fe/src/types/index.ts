@@ -43,4 +43,19 @@ export interface AppState {
   isAuthenticated: boolean;
   loading: boolean;
   error: string | null;
+}
+
+export interface UserProfile {
+  id: string;
+  userId: string;
+  weight: number; // kg
+  height: number; // cm
+  goal: string; // např. "zhubnout", "nabrat svaly", "zlepšit kondici"
+  level: 'beginner' | 'intermediate' | 'advanced';
+  healthLimitations: string; // volný text
+  workoutLocation: 'gym' | 'home' | 'outdoor';
+  workoutType: 'strength' | 'cardio' | 'mixed';
+  description: string; // volný popis pro AI asistenta
+  createdAt: string;
+  updatedAt: string;
 } 
