@@ -1,6 +1,6 @@
 # 🧠 TrainWise
 
-**TrainWise** je fullstack aplikace pro plánování a sledování fitness tréninků s pomocí AI asistenta. Umožňuje personalizované generování tréninkových plánů, sledování pokroku, zapisování poznámek a motivaci pomocí odměn.
+**TrainWise** je fullstack aplikace pro plánování a sledování fitness tréninků s pomocí AI asistenta. Umožňuje personalizované generování tréninkových plánů, sledování pokroku, zapisování poznámek a motivaci pomocí odměn. Vychází z mých vlastních potřeb, kdy si musím tréninky přizpůsobovat a chci mít přehled o svém pokroku.
 
  ---![E1C09525-4153-45FE-A33E-85989FC8F92D](https://github.com/user-attachments/assets/199e7ee2-03f3-408d-bedd-da3ad8f3b14b)
 
@@ -32,18 +32,23 @@
 
 1. Klonuj repozitář:
    ```bash
-   git clone https://github.com/tvoje-uzivatelske-jmeno/trainwise.git
-   cd trainwise
+   git clone https://github.com/VeveCambor/TrainWise.git
    
-2.	Nainstaluj závislosti a spusť backend:
+2. Nainstaluj závislosti a spusť backend:
     ```bash
     dotnet restore
     dotnet ef database update
     dotnet run
+    
+3. Nainstaluj závislosti a spusť frontend:
+    ```bash
+    npm install
+    npm run dev
 
-## 🧪 Testovací účet
+## 🧪 Testovací účet (později bude přidáná registrace)
 
-Zatím bez veřejného přístupu. Registrace probíhá přímo v appce.
+jméno: Wewika
+heslo: wewa123
 
 ## 📦 Deployment
 
