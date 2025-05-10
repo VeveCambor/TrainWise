@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import type { AppDispatch, RootState } from '../store';
 import { login } from '../store/slices/authSlice';
 import { useNavigate } from 'react-router-dom';
+import Button from '../components/ui/Button';
 
 export default function LoginPage() {
   const [username, setUsername] = useState('');
@@ -62,13 +63,9 @@ export default function LoginPage() {
         </div>
         {error && <div className="mb-4 text-red-600 text-sm text-center">{error}</div>}
         <div className="flex justify-center mt-6">
-          <button
-            type="submit"
-            className="rounded-md bg-trainwise-coral px-6 py-2 text-white font-semibold hover:bg-opacity-90 transition disabled:opacity-60"
-            disabled={loading}
-          >
+          <Button type="submit" disabled={loading}>
             {loading ? 'Přihlašuji...' : 'Přihlásit se'}
-          </button>
+          </Button>
         </div>
       </form>
     </div>

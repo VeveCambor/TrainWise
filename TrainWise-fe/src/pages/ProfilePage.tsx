@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import type { AppDispatch, RootState } from '../store';
 import { setProfile } from '../store/slices/profileSlice';
 import type { UserProfile } from '../types';
+import Button from '../components/ui/Button';
 
 const initialProfile: Omit<UserProfile, 'id' | 'userId' | 'createdAt' | 'updatedAt'> = {
   weight: 70,
@@ -90,9 +91,7 @@ export default function ProfilePage() {
           </div>
         </div>
         <div className="flex justify-center mt-6">
-          <button type="submit" className="rounded-md bg-trainwise-coral px-6 py-2 text-white font-semibold hover:bg-opacity-90 transition">
-            Uložit profil
-          </button>
+          <Button type="submit">Uložit profil</Button>
         </div>
       </form>
     </div>
