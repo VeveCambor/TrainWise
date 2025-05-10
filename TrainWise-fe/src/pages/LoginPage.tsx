@@ -10,12 +10,17 @@ export default function LoginPage() {
   const dispatch = useDispatch<AppDispatch>();
   const navigate = useNavigate();
   const { loading, error, isAuthenticated } = useSelector((state: RootState) => state.auth);
+  const profile = useSelector((state: RootState) => state.profile.profile);
 
   useEffect(() => {
     if (isAuthenticated) {
-      navigate('/');
+      if (!profile) {
+        navigate('/profile');
+      } else {
+        navigate('/');
+      }
     }
-  }, [isAuthenticated, navigate]);
+  }, [isAuthenticated, profile, navigate]);
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -56,13 +61,15 @@ export default function LoginPage() {
           />
         </div>
         {error && <div className="mb-4 text-red-600 text-sm text-center">{error}</div>}
-        <button
-          type="submit"
-          className="w-full rounded-md bg-trainwise-coral px-4 py-2 text-white font-semibold hover:bg-opacity-90 transition disabled:opacity-60"
-          disabled={loading}
-        >
-          {loading ? 'Přihlašuji...' : 'Přihlásit se'}
-        </button>
+        <div className="flex justify-center mt-6">
+          <button
+            type="submit"
+            className="rounded-md bg-trainwise-coral px-6 py-2 text-white font-semibold hover:bg-opacity-90 transition disabled:opacity-60"
+            disabled={loading}
+          >
+            {loading ? 'Přihlašuji...' : 'Přihlásit se'}
+          </button>
+        </div>
       </form>
     </div>
   );

@@ -6,6 +6,7 @@ import HomePage from './pages/HomePage';
 import TrainingPlansPage from './pages/TrainingPlansPage';
 import ProgressPage from './pages/ProgressPage';
 import LoginPage from './pages/LoginPage';
+import ProfilePage from './pages/ProfilePage';
 import ProtectedRoute from './components/ProtectedRoute';
 
 function App() {
@@ -31,6 +32,7 @@ function App() {
                 </ProtectedRoute>
               }
             />
+            <Route path="/profile" element={<ProtectedRoute><ProfilePage /></ProtectedRoute>} />
             <Route path="/login" element={<LoginPage />} />
           </Routes>
         </MainLayout>
