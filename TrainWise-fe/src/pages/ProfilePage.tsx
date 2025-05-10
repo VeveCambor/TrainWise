@@ -5,6 +5,7 @@ import { setProfile } from '../store/slices/profileSlice';
 import type { UserProfile } from '../types';
 import Button from '../components/ui/Button';
 import Input from '../components/ui/Input';
+import Select from '../components/ui/Select';
 
 const initialProfile: Omit<UserProfile, 'id' | 'userId' | 'createdAt' | 'updatedAt'> = {
   weight: 70,
@@ -60,27 +61,27 @@ export default function ProfilePage() {
           </div>
           <div>
             <label className="block text-sm font-medium text-gray-700 mb-1">Úroveň</label>
-            <select name="level" value={form.level} onChange={handleChange} className="w-full rounded-md border border-gray-300 px-3 py-2 focus:border-trainwise-coral focus:outline-none focus:ring-1 focus:ring-trainwise-coral">
+            <Select name="level" value={form.level} onChange={handleChange}>
               <option value="beginner">Začátečník</option>
               <option value="intermediate">Středně pokročilý</option>
               <option value="advanced">Pokročilý</option>
-            </select>
+            </Select>
           </div>
           <div>
             <label className="block text-sm font-medium text-gray-700 mb-1">Kde budu cvičit</label>
-            <select name="workoutLocation" value={form.workoutLocation} onChange={handleChange} className="w-full rounded-md border border-gray-300 px-3 py-2 focus:border-trainwise-coral focus:outline-none focus:ring-1 focus:ring-trainwise-coral">
+            <Select name="workoutLocation" value={form.workoutLocation} onChange={handleChange}>
               <option value="gym">Fitko</option>
               <option value="home">Doma</option>
               <option value="outdoor">Venku</option>
-            </select>
+            </Select>
           </div>
           <div>
             <label className="block text-sm font-medium text-gray-700 mb-1">Druh cvičení</label>
-            <select name="workoutType" value={form.workoutType} onChange={handleChange} className="w-full rounded-md border border-gray-300 px-3 py-2 focus:border-trainwise-coral focus:outline-none focus:ring-1 focus:ring-trainwise-coral">
+            <Select name="workoutType" value={form.workoutType} onChange={handleChange}>
               <option value="strength">Silový trénink</option>
               <option value="cardio">Kardio</option>
               <option value="mixed">Kombinace</option>
-            </select>
+            </Select>
           </div>
           <div className="md:col-span-2">
             <label className="block text-sm font-medium text-gray-700 mb-1">Zdravotní omezení</label>
