@@ -1,4 +1,5 @@
 using TrainWise.API.DTOs.Training;
+using TrainWise.API.Models;
 
 namespace TrainWise.API.Services;
 
@@ -10,4 +11,5 @@ public interface ITrainingService
     Task<TrainingPlanDto> UpdateTrainingPlanAsync(int userId, int planId, UpdateTrainingPlanDto request);
     Task DeleteTrainingPlanAsync(int userId, int planId);
     Task<TrainingItemDto> UpdateTrainingItemStatusAsync(int userId, int planId, int itemId, bool isCompleted);
+    Task<UserProfile> GetUserProfileAsync(int userId);
 } 

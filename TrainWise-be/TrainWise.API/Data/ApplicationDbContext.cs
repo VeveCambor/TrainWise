@@ -51,8 +51,8 @@ public class ApplicationDbContext : DbContext
         {
             Id = 1,
             Username = "wewa",
-            PasswordHash = BCrypt.Net.BCrypt.HashPassword("wewa"),
-            CreatedAt = DateTime.UtcNow
+            PasswordHash = "$2a$11$F1acQC/XaEULtTmhmmpoxeSk7eq2y35zvAIsdkVIDYe3doYb2QoIq",
+            CreatedAt = new DateTime(2025, 5, 19, 18, 51, 11, 39, DateTimeKind.Utc).AddTicks(190)
         };
         
         modelBuilder.Entity<User>().HasData(testUser);

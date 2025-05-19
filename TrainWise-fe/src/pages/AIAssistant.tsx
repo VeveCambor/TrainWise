@@ -1,4 +1,5 @@
 import AIChat from '../components/AIChat';
+import GeneratePlan from '../components/GeneratePlan';
 
 export default function AIAssistant() {
   return (
@@ -19,14 +20,7 @@ export default function AIAssistant() {
             Nechte si vygenerovat personalizovaný tréninkový plán na míru vašim cílům a možnostem.
             Plán bude zohledňovat vaši úroveň, dostupné vybavení a zdravotní omezení.
           </p>
-          <div className="bg-white rounded-lg shadow-lg p-6">
-            <button
-              className="w-full py-3 bg-trainwise-coral text-white rounded-lg hover:bg-trainwise-coral-dark transition-colors"
-              onClick={() => {/* TODO: Implementovat generování plánu */}}
-            >
-              Vygenerovat nový plán
-            </button>
-          </div>
+          <GeneratePlan />
         </div>
       </div>
     </div>

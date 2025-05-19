@@ -4,6 +4,7 @@ using Microsoft.IdentityModel.Tokens;
 using System.Text;
 using TrainWise.API.Data;
 using TrainWise.API.Services;
+using TrainWise.API.Configuration;
 using DotNetEnv;
 
 // Load .env file

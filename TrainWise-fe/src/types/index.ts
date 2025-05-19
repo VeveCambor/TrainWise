@@ -1,8 +1,8 @@
 export interface User {
   id: string;
+  username: string;
   email: string;
-  name: string;
-  avatar?: string;
+  name?: string;
 }
 
 export interface TrainingPlan {
@@ -23,6 +23,8 @@ export interface Exercise {
   sets: number;
   reps: number;
   restTime: number; // v sekundách
+  rest: string; // pro zobrazení v UI
+  notes?: string;
   videoUrl?: string;
   imageUrl?: string;
 }
@@ -58,4 +60,16 @@ export interface UserProfile {
   description: string; // volný popis pro AI asistenta
   createdAt: string;
   updatedAt: string;
+}
+
+export interface TrainingPlanDto {
+  name: string;
+  description: string;
+  duration: string;
+  items: TrainingDay[];
+}
+
+export interface TrainingDay {
+  day: string;
+  exercises: Exercise[];
 } 

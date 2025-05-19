@@ -15,7 +15,7 @@ namespace TrainWise.API.Migrations
         protected override void BuildModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
-            modelBuilder.HasAnnotation("ProductVersion", "8.0.2");
+            modelBuilder.HasAnnotation("ProductVersion", "9.0.4");
 
             modelBuilder.Entity("TrainWise.API.Models.TrainingItem", b =>
                 {
@@ -112,8 +112,8 @@ namespace TrainWise.API.Migrations
                         new
                         {
                             Id = 1,
-                            CreatedAt = new DateTime(2025, 5, 8, 17, 12, 28, 355, DateTimeKind.Utc).AddTicks(7280),
-                            PasswordHash = "$2a$11$yh47/UHoobk1AtdibXkos.WAskZRJrt0DyOnHFeIrRSXFvZPPU7ka",
+                            CreatedAt = new DateTime(2025, 5, 19, 18, 51, 11, 39, DateTimeKind.Utc).AddTicks(190),
+                            PasswordHash = "$2a$11$F1acQC/XaEULtTmhmmpoxeSk7eq2y35zvAIsdkVIDYe3doYb2QoIq",
                             Username = "wewa"
                         });
                 });
@@ -126,6 +126,12 @@ namespace TrainWise.API.Migrations
 
                     b.Property<int>("Age")
                         .HasColumnType("INTEGER");
+
+                    b.Property<DateTime>("CreatedAt")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("Description")
+                        .HasColumnType("TEXT");
 
                     b.Property<string>("Gender")
                         .IsRequired()
@@ -141,11 +147,26 @@ namespace TrainWise.API.Migrations
                     b.Property<int>("Height")
                         .HasColumnType("INTEGER");
 
+                    b.Property<string>("Level")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.Property<DateTime>("UpdatedAt")
+                        .HasColumnType("TEXT");
+
                     b.Property<int>("UserId")
                         .HasColumnType("INTEGER");
 
                     b.Property<int>("Weight")
                         .HasColumnType("INTEGER");
+
+                    b.Property<string>("WorkoutLocation")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("WorkoutType")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
 
                     b.HasKey("Id");
 

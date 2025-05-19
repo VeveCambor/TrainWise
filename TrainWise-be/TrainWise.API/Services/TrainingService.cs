@@ -14,6 +14,15 @@ public class TrainingService : ITrainingService
         _context = context;
     }
 
+    public async Task<UserProfile> GetUserProfileAsync(int userId)
+    {
+        var profile = await _context.UserProfiles
+            .FirstOrDefaultAsync(p => p.UserId == userId)
+            ?? throw new InvalidOperationException("Uživatelský profil nenalezen.");
+            
+        return profile;
+    }
+
     public async Task<TrainingPlanDto> CreateTrainingPlanAsync(int userId, CreateTrainingPlanDto request)
     {
         var userProfile = await _context.UserProfiles
