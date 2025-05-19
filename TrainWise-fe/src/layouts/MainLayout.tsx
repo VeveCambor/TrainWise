@@ -16,6 +16,7 @@ export default function MainLayout({ children }: MainLayoutProps) {
   const navigation = [
     { name: 'Tréninkové plány', href: '/training-plans' },
     { name: 'Sledování pokroku', href: '/progress' },
+    { name: 'AI Trenér', href: '/ai-assistant' },
   ];
 
   return (

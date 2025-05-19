@@ -5,5 +5,6 @@ export const API_ENDPOINTS = {
   REGISTER: `${API_BASE}/Auth/register`,
   TRAINING_PLANS: `${API_BASE}/training-plans`,
   PROGRESS: `${API_BASE}/progress`,
-  // ...další endpointy
+  AI_ADVICE: `${API_BASE}/AI/advice`,
+  AI_GENERATE_PLAN: `${API_BASE}/AI/generate-plan`
 }; 

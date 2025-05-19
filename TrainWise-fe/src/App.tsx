@@ -8,6 +8,7 @@ import ProgressPage from './pages/ProgressPage';
 import LoginPage from './pages/LoginPage';
 import ProfilePage from './pages/ProfilePage';
 import ProtectedRoute from './components/ProtectedRoute';
+import AIAssistant from './pages/AIAssistant';
 
 function App() {
   return (
@@ -34,6 +35,7 @@ function App() {
             />
             <Route path="/profile" element={<ProtectedRoute><ProfilePage /></ProtectedRoute>} />
             <Route path="/login" element={<LoginPage />} />
+            <Route path="/ai-assistant" element={<AIAssistant />} />
           </Routes>
         </MainLayout>
       </Router>
