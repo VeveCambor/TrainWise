@@ -20,10 +20,15 @@ builder.Services.AddSwaggerGen();
 // Register services
 builder.Services.AddScoped<IAuthService, AuthService>();
 builder.Services.AddScoped<ITrainingService, TrainingService>();
+builder.Services.AddScoped<IAIService, AIService>();
+builder.Services.AddHttpClient();
 
 // Add DbContext
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
     options.UseSqlite(Environment.GetEnvironmentVariable("ConnectionStrings__DefaultConnection")));
+
+// Add OpenAI configuration
+builder.Services.Configure<OpenAIConfig>(builder.Configuration.GetSection("OpenAI"));
 
 // Add Authentication
 builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)

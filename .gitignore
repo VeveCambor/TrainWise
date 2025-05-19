@@ -75,4 +75,11 @@ Thumbs.db
 *development*
 *test*
 *staging*
-*production* 
+*production*
+
+# TrainWise specific
+TrainWise-be/TrainWise.db
+TrainWise-be/TrainWise.API/appsettings.Development.json
+TrainWise-be/TrainWise.API/appsettings.Production.json
+**/appsettings.*.json
+!**/appsettings.json 
